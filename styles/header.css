@@ -1,0 +1,41 @@
+#page {
+    position: absolute;
+    right: 0;
+}
+
+#menu {
+    background-color: black;
+    color: white;
+    position: fixed;
+    right: -360px;
+    width: 360px;
+    height: 100vh;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    background-color: black;
+    opacity: 70%;
+    padding-left: 16px;
+    padding-right: 16px;
+    z-index: 99;
+}
+
+#header-logo > span {
+    color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#header-menu-button {
+    height: 32px;
+    width: 32px;
+}
