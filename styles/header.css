@@ -3,18 +3,6 @@
     right: 0;
 }
 
-#menu {
-    background-color: black;
-    color: white;
-    position: fixed;
-    right: -360px;
-    width: 360px;
-    height: 100vh;
-    height: 100svh;
-    display: flex;
-    flex-direction: column;
-}
-
 #header {
     position: fixed;
     width: 100%;
@@ -38,4 +26,31 @@
 #header-menu-button {
     height: 32px;
     width: 32px;
+}
+
+#menu {
+    background-color: black;
+    color: white;
+    position: fixed;
+    right: -360px;
+    width: 360px;
+    height: 100vh;
+    height: 100svh;
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+#menu > a {
+    font-size: 24px;
+    color: white;
+    opacity: 60%;
+    text-decoration: none;
+    padding-left: 24px;
+    padding-bottom: 16px;
+    transition: opacity 0.25s;
+}
+
+#menu > a:hover {
+    opacity: 90%;
 }

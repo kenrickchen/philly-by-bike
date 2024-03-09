@@ -30,3 +30,13 @@ button {
     opacity: 0.7;
     transition: opacity 1s;
 }
+
+#page {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#content {
+    top: 64px;
+}
