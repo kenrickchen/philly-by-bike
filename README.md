@@ -1,2 +1,2 @@
 # phillybybike
-Ctrl+Shift Project by Kenrick Chen
+Ctrl+Shift project by Kenrick Chen
