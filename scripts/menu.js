@@ -8,18 +8,4 @@ $(function(){
             $("#menu").animate({"right": "-360px"});
         }
     });
-    
-    $(".hidden").each(function(){
-        observer.observe(this);
-    });
-});
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
-    });
 });

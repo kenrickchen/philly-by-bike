@@ -1,40 +1,59 @@
+h1 {
+    font-size: min(10vw, 64px);
+    font-weight: 450;
+}
+
+p {
+    font-size: max(2vw, 16px);
+    font-weight: 450;
+}
+
 #content {
     display: flex;
     flex-direction: column;
 }
 
-#content > div {
-    background-color: black;
-}
-
-#content > div > p {
+#content > div > h1, p, span {
     color: white;
 }
 
 #div-1 {
-    margin: 0;
     height: 100vh;
-    height: 100svh;
     width: 100vw;
-    background-color: black;
+    background-color: rgb(0, 30, 30);
     display: flex;
-    align-items: center;
     justify-content: center;
     z-index: -1;
 }
 
 #div-1 > img {
-    position: absolute;
+    position: fixed;
     top: 64px;
     min-height: 100%;
     min-width: 100%;
-    opacity: 40%;
+    opacity: 50%;
 }
 
 #div-1 > h1 {
     position: absolute;
-    color: white;
-    font-weight: 500;
-    opacity: 40%;
+    top: 60vh;
+    text-align: center;
+    font-size: min(10vw, 64px);
+    font-weight: 450;
+    opacity: 50%;
     z-index: 1;
+}
+
+#div-1 > span {
+    position: absolute;
+    text-align: center;
+    font-size: min(3vw, 16px);
+    bottom: 2vh;
+    font-weight: 800;
+    opacity: 50%;
+    z-index: 1;
+}
+
+#div-2 {
+    background-color:darkgrey;
 }

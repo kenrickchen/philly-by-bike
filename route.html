@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/route.css">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer src="scripts/menu.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    <script defer src="scripts/route.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <a href="index.html">Start Page</a>
+        <a href=>Should You Bike?</a>
+        <a href="">Bike Safety</a>
+        <a href="route.html">Route Maker</a>
+        <a href="">Transform Philly</a>
+    </div>
+
+    <div id="page">
+        <div id="header">
+            <span id="header-logo">
+                <span>Logo</span>
+                <span>Philly by Bike</span>
+            </span>
+            <span><input id="header-menu-button" type="image" src="resources/menu.png" alt="open menu"></span>
+        </div>
+
+        <div id="content">
+            <div id="map"></div>
+        </div>
+        <div>Footer</div>
+    </div>
+    
+</body>
+</html>
