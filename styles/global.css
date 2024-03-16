@@ -1,7 +1,14 @@
 * {
     box-sizing: border-box;
-    font-family: Verdana, sans-serif;
+    font-family: "Libre Franklin", Verdana, sans-serif;
 }
+
+.libre-franklin {
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+  }  
 
 html, body {
     background-color: black;

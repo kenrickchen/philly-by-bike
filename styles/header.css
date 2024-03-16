@@ -5,8 +5,7 @@
     justify-content: space-between;
     align-items: center;
     height: 64px;
-    background-color: black;
-    opacity: 70%;
+    background-color: #26343d;
     padding-left: 16px;
     padding-right: 16px;
     z-index: 99;
@@ -29,7 +28,7 @@
 }
 
 #menu {
-    background-color: black;
+    background-color: #1f2b33;
     color: white;
     position: fixed;
     right: -360px;
