@@ -10,12 +10,18 @@
     font-style: normal;
   }  
 
-html, body {
-    background-color: black;
+html {
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: black;
     display: flex;
     margin: 0;
     flex-direction: column;
-    overflow-x: hidden;
 }
 
 button {
@@ -27,7 +33,10 @@ button {
 #page {
     position: absolute;
     height: 100vh;
+    perspective: 1px;
+    transform-style: preserve-3d;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #content {

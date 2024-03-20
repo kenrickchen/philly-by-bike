@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     height: 64px;
-    background-color: #26343d;
+    background-color: #1f303b;
     padding-left: 16px;
     padding-right: 16px;
     z-index: 99;
@@ -28,13 +28,13 @@
 }
 
 #menu {
-    background-color: #1f2b33;
+    background-color: #243c4b;
     color: white;
     position: fixed;
+    top: 64px;
     right: -360px;
     width: 360px;
-    height: 100vh;
-    height: 100svh;
+    height: calc(100vh - 64px);
     padding-top: 32px;
     display: flex;
     flex-direction: column;
