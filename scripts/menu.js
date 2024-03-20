@@ -1,11 +1,13 @@
 $(function(){
     $("#header-menu-button").click(function(){
-        if ($("#page").css("right") === "0px") {
-            $("#page").animate({"right": "360px"});
-            $("#menu").animate({"right": "0px"});
+        if ($("#content").css("right") === "0px") {
+            $("#header").animate({"width": "75%"});
+            $("#content").animate({"width": "75%"});
+            $("#menu").animate({"width": "25%"});
         } else {
-            $("#page").animate({"right": "0px"});
-            $("#menu").animate({"right": "-360px"});
+            $("#header").animate({"width": "100%"});
+            $("#content").animate({"width": "100%"});
+            $("#menu").animate({"width": "0%"});
         }
     });
 });

@@ -4,7 +4,7 @@
 }
 
 .libre-franklin {
-    font-family: "Libre Franklin", sans-serif;
+    font-family: "Libre Franklin";
     font-optical-sizing: auto;
     font-weight: auto;
     font-style: normal;
@@ -28,17 +28,4 @@ button {
     background-color: transparent;
     border: none;
     color: white;
-}
-
-#page {
-    position: absolute;
-    height: 100vh;
-    perspective: 1px;
-    transform-style: preserve-3d;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-#content {
-    top: 64px;
 }
