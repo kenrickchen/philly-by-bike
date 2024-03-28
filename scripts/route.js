@@ -1,5 +1,17 @@
-var map = L.map('map').setView([39.95, -75.165], 13);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+var options = {
+    searchOptions: {
+      key: "",
+      language: "en-US",
+      limit: 5,
+    },
+    autocompleteOptions: {
+      key: "",
+      language: "en-US",
+    },
+}
+
+var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+var map = tt.map({
+    key: "",
+    container: "map",
+})
