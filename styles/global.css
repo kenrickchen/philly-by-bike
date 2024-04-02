@@ -23,9 +23,3 @@ body {
     margin: 0;
     flex-direction: column;
 }
-
-button {
-    background-color: transparent;
-    border: none;
-    color: white;
-}

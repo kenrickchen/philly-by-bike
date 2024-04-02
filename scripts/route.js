@@ -1,59 +1,96 @@
-const map = L.map('map').setView([39.95, -75.165], 13);
+let map = L.map('map').setView([39.95, -75.165], 13);
+
+let control = L.Routing.control({
+  geocoder: L.Control.Geocoder.photon(),
+  // reverseWaypoints: true,
+  // showAlternatives: true,
+  // altLineOptions: {
+	// 	styles: [
+	// 		{color: 'black', opacity: 0.15, weight: 9},
+	// 		{color: 'white', opacity: 0.8, weight: 6},
+	// 		{color: 'blue', opacity: 0.5, weight: 2}
+	// 	]
+	// },
+  // serviceUrl: "https://routing.openstreetmap.de/route/v1",
+  // profile: "bike",
+  router: L.Routing.mapzen('', {
+    costing:'bicycle'
+  }),
+  formatter: new L.Routing.mapzenFormatter(),
+}).addTo(map);
+
+function createButton(label, container) {
+  var btn = L.DomUtil.create('button', '', container);
+  btn.setAttribute('type', 'button');
+  btn.innerHTML = label;
+  return btn;
+}
+
+map.on('click', function(e) {
+  let container = L.DomUtil.create('div');
+  let startButton = createButton('Start from this location', container);
+  let destinationButton = createButton('Go to this location', container);
+
+  L.popup()
+      .setContent(container)
+      .setLatLng(e.latlng)
+      .openOn(map);
+  
+  L.DomEvent.on(startButton, 'click', function() {
+    control.spliceWaypoints(0, 1, e.latlng);
+    map.closePopup();
+  });
+
+  L.DomEvent.on(destinationButton, 'click', function() {
+    control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+    map.closePopup();
+  });
+});
+
+function getColor(type) {
+  switch(type) {
+    case "Sharrow":
+      return "#ff0000";
+    case "Conventional":
+      return "#ff7b00";
+    case "Paint Buffered":
+      return "#ffc800";
+    case "Separated Bike Lane":
+      return "#00ff00";
+    default:
+      return '#ff00ff';
+  }
+}
+
+function getStyle(feature) {
+  return {
+    color: getColor(feature.properties.TYPE),
+    opacity: 0.5
+  }
+}
+
+let geojson;
 
 $.getJSON("resources/bike_network.geojson", function(json) {
-  L.geoJson(json, {style: style}).addTo(map);
+  geojson = L.geoJson(json, {style: getStyle}).addTo(map);
 });
-
-let pathfinder;
-let points;
-$.getJSON("resources/network.geojson", function(json) {
-  pathfinder = new geojsonPathFinder(json);
-  points = turf.explode(json);
-});
-
-let start;
-let end;
-
-const geocoder = L.Control.geocoder({
-  geocoder: L.Control.Geocoder.photon()
-});
-
-geocoder.addTo(map);
-geocoder.on('markgeocode', function(result) {
-  let point = turf.point([result.geocode.center.lng, result.geocode.center.lat]);
-  if (start === undefined) {
-    start = point;
-  } else {
-    end = point;
-    let startInNetwork = turf.nearest(start, points);
-    let endInNetwork = turf.nearest(end, points);
-    let path = pathfinder.findPath(startInNetwork, endInNetwork).path;
-    path.forEach(function(array) {
-      array.reverse();
-    })
-    let polyline = L.polyline(path, {color: 'white'}).addTo(map);
-    map.fitBounds(polyline.getBounds());
-  }
-});
-
-
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-function getColor(type) {
-  return type === "Sharrow" ? "#ff0000" :
-         type === "Conventional" ? '#ff7b00' :
-         type === "Paint Buffered"  ? '#ffc800' :
-         type === "Separated Bike Lane"  ? '#00ff00' :
-         type === "Two Way Separated Bike Lane"  ? '#0000ff' :
-                  '#ff00ff';
+
+
+function highlightFeature(mouse) {
+  let layer = mouse.target;
+
+  layer.setStyle({
+    weight: 5,
+  });
+
+  layer.bringToFront();
 }
 
-function style(feature) {
-  return {
-    color: getColor(feature.properties.TYPE),
-    opacity: 0.5
-  };
+function resetHighlight(mouse) {
+  
 }
