@@ -2,17 +2,7 @@ let map = L.map('map').setView([39.95, -75.165], 13);
 
 let control = L.Routing.control({
   geocoder: L.Control.Geocoder.photon(),
-  // reverseWaypoints: true,
-  // showAlternatives: true,
-  // altLineOptions: {
-	// 	styles: [
-	// 		{color: 'black', opacity: 0.15, weight: 9},
-	// 		{color: 'white', opacity: 0.8, weight: 6},
-	// 		{color: 'blue', opacity: 0.5, weight: 2}
-	// 	]
-	// },
-  // serviceUrl: "https://routing.openstreetmap.de/route/v1",
-  // profile: "bike",
+  reverseWaypoints: true,
   router: L.Routing.mapzen('', {
     costing:'bicycle'
   }),
@@ -27,6 +17,7 @@ function createButton(label, container) {
 }
 
 map.on('click', function(e) {
+
   let container = L.DomUtil.create('div');
   let startButton = createButton('Start from this location', container);
   let destinationButton = createButton('Go to this location', container);
@@ -71,7 +62,7 @@ function getStyle(feature) {
 
 let geojson;
 
-$.getJSON("resources/bike_network.geojson", function(json) {
+$.getJSON("https://opendata.arcgis.com/datasets/b5f660b9f0f44ced915995b6d49f6385_0.geojson", function(json) {
   geojson = L.geoJson(json, {style: getStyle}).addTo(map);
 });
 
