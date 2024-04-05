@@ -7,7 +7,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 let control = L.Routing.control({
-  geocoder: L.Control.Geocoder.photon(),
+  geocoder: L.Control.Geocoder.photon({
+    geocodingQueryParams: {
+      lat: "39.95",
+      lon: "-75.165"
+    }
+  }),
   reverseWaypoints: true,
   router: L.Routing.mapzen('', {
     costing:'bicycle'
@@ -82,6 +87,8 @@ function onEachFeature(feature, layer) {
       layer.setStyle({weight: 7});
     }
   });
+
+  
 }
 
 let geojson;
