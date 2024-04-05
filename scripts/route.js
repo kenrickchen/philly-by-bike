@@ -1,4 +1,10 @@
-let map = L.map('map').setView([39.95, -75.165], 13);
+let map = L.map('map', {
+  minZoom: 11,
+}).setView([39.95, -75.165], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
 
 let control = L.Routing.control({
   geocoder: L.Control.Geocoder.photon(),
@@ -18,9 +24,11 @@ function createButton(label, container) {
 
 map.on('click', function(e) {
 
-  let container = L.DomUtil.create('div');
-  let startButton = createButton('Start from this location', container);
-  let destinationButton = createButton('Go to this location', container);
+  let container = L.DomUtil.create('div', 'popup');
+  let startButton = L.DomUtil.create('button', '', container);
+  startButton.innerHTML = 'Start from this location';
+  let destinationButton = L.DomUtil.create('button', '', container);
+  destinationButton.innerHTML = 'Go to this location';
 
   L.popup()
       .setContent(container)
@@ -53,35 +61,34 @@ function getColor(type) {
   }
 }
 
-function getStyle(feature) {
+function style(feature) {
   return {
     color: getColor(feature.properties.TYPE),
-    opacity: 0.5
+    opacity: 0.5,
+    weight: 5,
+    lineCap: "butt"
   }
+}
+
+function onEachFeature(feature, layer) {
+  map.on('zoomend', function() {
+    let currentZoom = map.getZoom();
+    console.log(currentZoom);
+    if (currentZoom < 13) {
+      layer.setStyle({weight: 2});
+    } else if (currentZoom < 15) {
+      layer.setStyle({weight: 5});
+    } else {
+      layer.setStyle({weight: 7});
+    }
+  });
 }
 
 let geojson;
 
 $.getJSON("https://opendata.arcgis.com/datasets/b5f660b9f0f44ced915995b6d49f6385_0.geojson", function(json) {
-  geojson = L.geoJson(json, {style: getStyle}).addTo(map);
+  geojson = L.geoJson(json, {
+    style: style,
+    onEachFeature: onEachFeature
+  }).addTo(map);
 });
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
-
-
-
-function highlightFeature(mouse) {
-  let layer = mouse.target;
-
-  layer.setStyle({
-    weight: 5,
-  });
-
-  layer.bringToFront();
-}
-
-function resetHighlight(mouse) {
-  
-}
