@@ -651,9 +651,9 @@ L.Routing.mapzenWaypoint = L.routing.mapzenWaypoint;
       // Deprecation warnings for Mapzen hosted service.
       // Make sure people aware of Mapzen hosted services are going down.
       var mapzenHostedServiceUrl = '//valhalla1.openstreetmap.de';
-      if (this.options.serviceUrl.indexOf(mapzenHostedServiceUrl) > -1) {
-        console.warn('Mapzen is shutting down its services including Turn-by-turn. Read more at https://mapzen.com/blog/shutdown');
-      }
+      // if (this.options.serviceUrl.indexOf(mapzenHostedServiceUrl) > -1) {
+      //   console.warn('Mapzen is shutting down its services including Turn-by-turn. Read more at https://mapzen.com/blog/shutdown');
+      // }
 
       this._accessToken = accessToken;
     },
