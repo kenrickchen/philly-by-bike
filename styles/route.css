@@ -13,5 +13,11 @@
 }
 
 .leaflet-tile-pane {
-    filter: grayscale(0.5);
+    filter: grayscale(0.7);
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
