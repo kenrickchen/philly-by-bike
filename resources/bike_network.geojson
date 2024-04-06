@@ -2761,7 +2761,7 @@
         "ST_CODE": 32200,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Paint Buffered Bike Lane",
         "Shape__Length": 62.959990158816602
       },
       "geometry": {
@@ -3312,7 +3312,7 @@
         "ST_CODE": 32200,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Paint Buffered Bike Lane",
         "Shape__Length": 1211.0560760631799
       },
       "geometry": {
@@ -3357,7 +3357,7 @@
         "ST_CODE": 32200,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Paint Buffered Bike Lane",
         "Shape__Length": 375.33449742404298
       },
       "geometry": {
@@ -3381,7 +3381,7 @@
         "ST_CODE": 32200,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Paint Buffered Bike Lane",
         "Shape__Length": 799.80018194823197
       },
       "geometry": {
@@ -3401,7 +3401,7 @@
         "ST_CODE": 32200,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Paint Buffered Bike Lane",
         "Shape__Length": 921.87173651879698
       },
       "geometry": {
@@ -5131,7 +5131,7 @@
         "ST_CODE": 63240,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Paint Buffered Bike Lane",
         "Shape__Length": 487.94432001946399
       },
       "geometry": {
@@ -10787,7 +10787,7 @@
         "ST_CODE": 38340,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Separated Bike Lane",
         "Shape__Length": 112.802964022137
       },
       "geometry": {
@@ -19355,7 +19355,7 @@
         "ST_CODE": 38340,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Conventional",
         "Shape__Length": 19.4600957914198
       },
       "geometry": {
@@ -19440,7 +19440,7 @@
         "ST_CODE": 38340,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Separated Bike Lane",
         "Shape__Length": 439.45805031344599
       },
       "geometry": {
@@ -19463,7 +19463,7 @@
         "ST_CODE": 38340,
         "ONEWAY": "B",
         "CLASS": 2,
-        "TYPE": null,
+        "TYPE": "Two Way Separated Bike Lane",
         "Shape__Length": 359.122298863867
       },
       "geometry": {
