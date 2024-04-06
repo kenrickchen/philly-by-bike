@@ -59,6 +59,10 @@
     background-color: #55503d;
 }
 
+#div-2 > h2 {
+    color: white;
+}
+
 #div-2 > p {
     color: white;
     font-size: max(2vw, 16px);
