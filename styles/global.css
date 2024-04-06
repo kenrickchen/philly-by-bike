@@ -23,3 +23,7 @@ body {
     margin: 0;
     flex-direction: column;
 }
+
+#wrapper {
+    max-width: 100vw;
+}
