@@ -39,6 +39,7 @@
     font-size: min(10vw, 64px);
     font-weight: 450;
     letter-spacing: 0.02em;
+    white-space: nowrap;
     z-index: 1;
 }
 

@@ -25,30 +25,77 @@ let control = L.Routing.control({
     units: 'imperial'
   }),
   lineOptions: {
-    addWaypoints: false
+    addWaypoints: false,
+    styles:[{color: "white", weight: 4}, {color: 'red', weight: 2}]
   },
+  
 }).addTo(map);
 
 L.Routing.errorControl(control).addTo(map);
+
+let types = {
+  "Sharrows": "#fe797b",
+  "Bus Lane": "#ffb750",
+  "Conventional": "#ffea56",
+  "Buffered": "#8fe968",
+  "Protected": "#36cedc"
+}
+
+let colorGroups = {
+  "#fe797b": L.layerGroup(),
+  "#ffb750": L.layerGroup(),
+  "#ffea56": L.layerGroup(),
+  "#8fe968": L.layerGroup(),
+  "#36cedc": L.layerGroup()
+}
 
 let legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function(map) {
   let div = L.DomUtil.create('div', 'legend');
-  let types = {
-    "Sharrows": "#fe797b",
-    "Bus Lane": "#ffb750",
-    "Conventional": "#ffea56",
-    "Buffered": "#8fe968",
-    "Protected": "#36cedc"
-  }
+  L.DomEvent.disableClickPropagation(div);
+  L.DomEvent.disableScrollPropagation(div);
+  
   for (const key in types) {
-    div.innerHTML += '<i style="background:' + types[key] + '"></i> ' + key + '<br>';
+    div.innerHTML += '<input class="legend-checkbox" id="' + types[key] + '" type="checkbox" checked>'+ key + '</input><br>';
   }
+  div.innerHTML += '<button id="toggle-legend-btn">hide &#x2715;</button>';
   return div;
 }
 
+$(function(){
+  let checkboxes = document.getElementsByClassName("legend-checkbox");
+  console.log(checkboxes);
+  for (let checkbox of checkboxes) {
+    checkbox.onclick = function() {
+      if (checkbox.checked === false) {
+        map.removeLayer(colorGroups[checkbox.id]);  
+      } else {
+        map.addLayer(colorGroups[checkbox.id]);  
+      }
+    }
+  }
+});
+
 legend.addTo(map);
+
+document.getElementById("toggle-legend-btn").onclick = function() {
+  if (this.innerHTML.includes("hide")) {
+    this.innerHTML = "show";
+    this.style.right = "0px";
+    this.style.bottom = "0px";
+    let legend = document.getElementsByClassName("legend")[0];
+    legend.style.height = "30px";
+    legend.style.width = "64px";
+  } else {
+    this.innerHTML = "hide &#x2715;";
+    this.style.right = "3px";
+    this.style.bottom = "3px";
+    let legend = document.getElementsByClassName("legend")[0];
+    legend.style.height = "142px";
+    legend.style.width = "auto";
+  }
+}
 
 function createButton(label, container) {
   var btn = L.DomUtil.create('button', '', container);
@@ -58,7 +105,6 @@ function createButton(label, container) {
 }
 
 map.on('click', function(e) {
-  console.log(control.getWaypoints());
   let container = L.DomUtil.create('div', 'popup');
   let startButton = L.DomUtil.create('button', '', container);
   startButton.innerHTML = 'Start from this location';
@@ -67,7 +113,7 @@ map.on('click', function(e) {
     addButton = L.DomUtil.create('button', '', container);
     addButton.innerHTML = 'Add location as stop';
   }
-  let destinationButton = L.DomUtil.create('button', '', container);
+  let destinationButton = L.DomUtil.create('button', 'go-to-btn', container);
   destinationButton.innerHTML = 'Go to this location';
 
   L.popup()
@@ -123,19 +169,27 @@ function style(feature) {
     color: getColor(feature.properties.TYPE),
     weight: 5,
     opacity: 0.6,
-    lineCap: "butt"
+    lineCap: "butt",
   }
 }
 
 map.on('zoomend', function() {
   let currentZoom = map.getZoom();
-  geojson.setStyle({weight: currentZoom-9, opacity: 1-((currentZoom-5)/20)})
+  geojson.setStyle({weight: currentZoom-8})
 });
+
+function onEachFeature(feature, layer) {
+  colorGroups[layer.options.color].addLayer(layer);
+}
 
 let geojson;
 
 $.getJSON("./resources/bike_network.geojson", function(json) {
   geojson = L.geoJson(json, {
     style: style,
-  }).addTo(map);
+    onEachFeature: onEachFeature
+  });
+  for (let key in colorGroups) {
+    colorGroups[key].addTo(map);
+  }
 });
