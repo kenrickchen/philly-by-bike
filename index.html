@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Philly by Bike</title>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/title.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/content.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -18,26 +21,51 @@
     <div id="wrapper">
         <div id="header">
             <span id="header-logo">
-                <span>Logo</span>
-                <span>Philly by Bike</span>
+                <a href="index.html">
+                    <img id="logo" src="resources/favicon.ico" alt="logo">
+                    <span>Philly by Bike</span>
+                </a>
             </span>
             <span><input id="header-menu-button" type="image" src="resources/menu.png" alt="open menu"></span>
         </div>
     
         <div id="menu">
+            <button id="menu-exit-button">&#10005;</button>
             <a href="index.html">Landing Page</a>
+            <a href="reason.html">Reason Statement</a>
             <a href="safety.html">Bike Safety</a>
             <a href="lanes.html">Bike Lanes</a>
             <a href="route.html">Bike Navigation</a>
         </div>
     
         <div id="content">
-            <div id="div-1">
+            <div class="title-div" id="landing-title-div">
                 <h1>Join the revolution.</h1>
                 <span>scroll down</span>
             </div>
-            <div id="div-2">
-                <h2>Why care about biking in Philadelphia?</h2>
+            <div class="left-img-div"> <!--outer left/right class used purely for color-->
+                <div class="div-content left-img-div-content">
+                    <p><a href="reason.html">Learn about why you should care about cycling.</a></p>
+                    <img src="resources/reason.webp" alt="cyclists on Ben Franklin Parkway">
+                </div>
+            </div>
+            <div class="right-img-div">
+                <div class="div-content left-img-div-content">
+                    <p><a href="safety.html">Learn about safe cycling practices.</a></p>
+                    <img src="resources/safety.jpg" alt="kids riding bikes with police officers">
+                </div>
+            </div>
+            <div class="left-img-div">
+                <div class="div-content left-img-div-content">
+                    <p><a href="lanes.html">Learn about the different types of bike lanes.</a></p>
+                    <img src="resources/lanes.jpg" alt="cyclist in a conventional bike lane">
+                </div>
+            </div>
+            <div class="right-img-div">
+                <div class="div-content left-img-div-content">
+                    <p><a href="route.html">Use our navigation tool to get around the city.</a></p>
+                    <img src="resources/bridge.jpg" alt="cyclists on the Ben Franklin Bridge">
+                </div>
             </div>
         </div>
     </div>

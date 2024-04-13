@@ -9,15 +9,24 @@
     padding-left: 16px;
     padding-right: 16px;
     z-index: 1;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(20px) brightness(50%);
     white-space: nowrap;
     overflow-x: hidden;
 }
 
-#header-logo > span {
+#header-logo a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 180px;
     color: white;
-    padding-left: 16px;
-    padding-right: 16px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#header-logo img {
+    width: 48px;
+    height: 48px
 }
 
 #header-menu-button {
@@ -26,7 +35,7 @@
     transition: opacity 0.25s;
 }
 
-#header-menu-button > a:hover {
+#header-menu-button a:hover {
     opacity: 90%;
 }
 
@@ -45,7 +54,7 @@
     z-index: 1;
 }
 
-#menu > a {
+#menu a {
     font-size: 24px;
     color: white;
     opacity: 60%;
@@ -56,6 +65,24 @@
     white-space: nowrap;
 }
 
-#menu > a:hover {
+#menu a:hover {
+    opacity: 90%;
+}
+
+#menu-exit-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    height: 32px;
+    width: 32px;
+    background: transparent;
+    border: none;
+    color: white;
+    opacity: 60%;
+    font-size: 24px;
+    transition: opacity 0.25s;
+}
+
+#menu-exit-button:hover {
     opacity: 90%;
 }

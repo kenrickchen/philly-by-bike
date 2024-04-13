@@ -1,6 +1,10 @@
+// init map
+
 let map = L.map('map', {
   minZoom: 11
 }).setView([39.95, -75.165], 13);
+
+// init tile layer
 
 // street: http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}
 // satellite: http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}
@@ -9,6 +13,8 @@ L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
   maxZoom: 20,
   subdomains:['mt0','mt1','mt2','mt3']
 }).addTo(map);
+
+// init search and router
 
 let control = L.Routing.control({
   geocoder: L.Control.Geocoder.photon({
@@ -32,6 +38,8 @@ let control = L.Routing.control({
 }).addTo(map);
 
 L.Routing.errorControl(control).addTo(map);
+
+// init legend
 
 let types = {
   "Sharrows": "#fe797b",
@@ -65,7 +73,6 @@ legend.onAdd = function(map) {
 
 $(function(){
   let checkboxes = document.getElementsByClassName("legend-checkbox");
-  console.log(checkboxes);
   for (let checkbox of checkboxes) {
     checkbox.onclick = function() {
       if (checkbox.checked === false) {
@@ -96,6 +103,8 @@ document.getElementById("toggle-legend-btn").onclick = function() {
     legend.style.width = "auto";
   }
 }
+
+// init popup button
 
 function createButton(label, container) {
   var btn = L.DomUtil.create('button', '', container);
@@ -138,6 +147,8 @@ map.on('click', function(e) {
     map.closePopup();
   });
 });
+
+// init bike lanes on map
 
 function getColor(type) {
   switch(type) {

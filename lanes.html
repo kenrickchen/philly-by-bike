@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanes</title>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/title.css">
+    <link rel="stylesheet" href="styles/content.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="header">
+        <span id="header-logo">
+            <a href="index.html">
+                <img id="logo" src="resources/favicon.ico" alt="logo">
+                <span>Philly by Bike</span>
+            </a>
+        </span>
+        <span><input id="header-menu-button" type="image" src="resources/menu.png" alt="open menu"></span>
+    </div>
+
+    <div id="menu">
+        <button id="menu-exit-button">&#10005;</button>
+        <a href="index.html">Landing Page</a>
+        <a href="reason.html">Reason Statement</a>
+        <a href="safety.html">Bike Safety</a>
+        <a href="lanes.html">Bike Lanes</a>
+        <a href="route.html">Bike Navigation</a>
+    </div>
+
+    <div id="content">
+        <div class="title-div" id="lanes-title-div">
+            <h1>Bike Lanes</h1>
+            <span>scroll down</span>
+        </div>
+        <div class="left-img-div">
+            <h1>Sharrows</h1>
+            <div class="div-content left-img-div-content">
+                <p>Sharrows are roads with markings that indicate the use of the road by cyclists. These markings alert drivers of the presence of cyclists and encourage cyclists to use the full lane. Sharrows are often used for roads which are too thin to accommodate both a car lane and a bike lane. Sharrows can prevent traffic accidents but still pose a risk to cyclists, since they offer no protection from motor vehicles. Because of this, many cyclists prefer to ride on the sidewalk, eliminating the point of the sharrow.</p>
+                <img src="resources/sharrow.jpg" alt="a sharrow">
+            </div>
+        </div>
+        <div class="right-img-div">
+            <h1>Shared Bus Lanes</h1>
+            <div class="div-content right-img-div-content">
+                <img src="resources/buslane.avif" alt="a shared bus lane">
+                <p>Shared bus lanes are lanes dedicated to the shared use of buses and bikes. Even though a shared bus lane is safer than no dedicated lane at all, the presence of buses may be uncomfortable to some cyclists. Cars are also allowed to merge into the bus lane to turn, which poses a risk of collision.</p>
+            </div>
+        </div>
+        <div class="left-img-div">
+            <h1>Conventional Bike Lanes</h1>
+            <div class="div-content left-img-div-content">
+                <p>Conventional bike lanes serve as separate lanes for cyclists only but with no physical protection from motor vehicles. They are used on wider roads where the speed of motor vehicles are faster, offering cyclists a much less hostile environment. However, cars often park in conventional bike lanes, forcing cyclists to merge into the road or ride on the sidewalk, which poses danger for themselves and others. If the bike lane is right next to parking, an unexpected opening of a car door, also known as "dooring", can cause cyclists to collide or swerve into traffic, causing serious injury.</p>
+                <img src="resources/conventional.jpg" alt="a conventional bike lane">
+            </div>
+        </div>
+        <div class="right-img-div">
+            <h1>Buffered Bike Lanes</h1>
+            <div class="div-content right-img-div-content">
+                <img src="resources/buffered.jpg" alt="a buffered bike lane">
+                <p>Buffered bike lanes are conventional bike lanes with buffer space between the car lane or parking and the bike lane. The greater distance from cars gives cyclists a sense of safety. The wider space also allows for cyclists to pass each other.</p>
+            </div>
+        </div>
+        <div class="left-img-div">
+            <h1>Protected Bike Lanes</h1>
+            <div class="div-content left-img-div-content">
+                <p>Protected bike lanes are bike lanes with a physical barrier, such as poles or a curb, that separates the bike lane from the car lane and protects cyclists from motor vehicles. The physical barriers prevent drivers from parking on the bike lane, ensuring cyclists' safety and speed.</p>
+                <img src="resources/protected.jpg" alt="a protected bike lane">
+            </div>
+        </div>
+        <div class="footer"><a href="route.html">Try our navigation tool</a></div>
+    </div>
+
+    <script src="scripts/menu.js"></script>
+</body>
+</html>

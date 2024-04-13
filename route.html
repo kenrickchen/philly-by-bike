@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation</title>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/header.css">
@@ -30,17 +31,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-
     <div id="header">
         <span id="header-logo">
-            <span>Logo</span>
-            <span>Philly by Bike</span>
+            <a href="index.html">
+                <img id="logo" src="resources/favicon.ico" alt="logo">
+                <span>Philly by Bike</span>
+            </a>
         </span>
         <span><input id="header-menu-button" type="image" src="resources/menu.png" alt="open menu"></span>
     </div>
 
     <div id="menu">
+        <button id="menu-exit-button">&#10005;</button>
         <a href="index.html">Landing Page</a>
+        <a href="reason.html">Reason Statement</a>
         <a href="safety.html">Bike Safety</a>
         <a href="lanes.html">Bike Lanes</a>
         <a href="route.html">Bike Navigation</a>
