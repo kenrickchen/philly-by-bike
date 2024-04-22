@@ -66,7 +66,7 @@ legend.onAdd = function(map) {
   
   for (const key in types) {
     div.innerHTML += '<input class="legend-checkbox" id="' + types[key] + '" type="checkbox" checked><span style="background:' 
-      + types[key] + ';">' + key + '</span></input><br>';
+      + types[key] + ';">' + key + '</span><br>';
   }
   div.innerHTML += '<button id="toggle-legend-btn">hide &#x2715;</button>';
   return div;
