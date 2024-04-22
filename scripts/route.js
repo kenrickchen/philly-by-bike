@@ -65,7 +65,7 @@ legend.onAdd = function(map) {
   L.DomEvent.disableScrollPropagation(div);
   
   for (const key in types) {
-    div.innerHTML += '<input class="legend-checkbox" id="' + types[key] + '" type="checkbox" checked>'+ key + '</input><br>';
+    div.innerHTML += '<input class="legend-checkbox" id="' + types[key] + '" type="checkbox" checked><span>'+ key + '</span></input><br>';
   }
   div.innerHTML += '<button id="toggle-legend-btn">hide &#x2715;</button>';
   return div;
